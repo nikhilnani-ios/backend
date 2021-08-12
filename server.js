@@ -37,7 +37,6 @@ mongoose.connect(mogodburl,{
 });
 mongoose.set('useFindAndModify', false);
 app.post("/hospitalregister",(req,res)=>{
-    console.log(req.body);
     const hospitalname=req.body.hname;
     const hospitalid=req.body.hid;
     const location = req.body.location;
