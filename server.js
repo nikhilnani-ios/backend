@@ -10,7 +10,7 @@ import bodyParser from 'body-parser';
 import Hospital from "./model.js";
 
 /*const port */
-const port = 5000||process.env.PORT;
+const port = process.env.PORT||5000;
 var hospitalName="";
 var hospitalId="";
 /*app config */
