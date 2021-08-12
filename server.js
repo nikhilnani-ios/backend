@@ -11,7 +11,6 @@ import Hospital from "./model.js";
 
 /*const port */
 const port = process.env.PORT||5000;
-var hospitalName="";
 var hospitalId="";
 /*app config */
 const app = express();
@@ -75,7 +74,6 @@ app.post("/hospitalregister",(req,res)=>{
     });
 });
 app.post("/hospitallogin",(req,res)=>{
-    console.log(req.body);
     Hospital.findOne({hospital_id:req.body.hospitalId},function(err,result){
         if(err)
         {
