@@ -11,6 +11,7 @@ import Hospital from "./model.js";
 
 /*const port */
 const port = process.env.PORT||5000;
+var hospitalName="";
 var hospitalId="";
 /*app config */
 const app = express();
