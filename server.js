@@ -1,6 +1,6 @@
 /*npm dependencies*/
 import dotenv from 'dotenv';
-doteenv.config();
+dotenv.config();
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
