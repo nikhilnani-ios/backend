@@ -17,7 +17,9 @@ const hospital_schema = new mongoose.Schema({
     b_positive:Number,
     b_negative:Number
 });
-hospital_schema.plugin(encrypt,{secret:stext,encryptFields:['hospital_password','hospital_id','hospital_location','hospital_name']})
+hospital_schema.plugin(encrypt,{secret:stext,
+    encryptedFields:['hospital_password','hospital_id']
+});
 const Hospital = mongoose.model('Hospital',hospital_schema);
 
 export default Hospital;
