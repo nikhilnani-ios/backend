@@ -89,7 +89,7 @@ app.post("/hospitallogin",(req,res)=>{
                     res.status(200).json({message:result.hospital_name});
                 }
                 else{
-                    res.status(400).json({message:"password incorrect"});
+                    res.status(300).json({message:"password incorrect"});
                 }
             }
             else
