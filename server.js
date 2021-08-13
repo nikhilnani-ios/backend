@@ -112,6 +112,7 @@ app.post("/bloodtypes",(req,res)=>{
     },function(err,result){
         if(err)
         {
+            console.log("error in the data base");
             res.status(400).json({message:"database error"});
         }
         else
@@ -124,6 +125,7 @@ app.post("/bloodtypes",(req,res)=>{
             }
             else
             {
+                console.log("user not found");
                 res.status(400).json({message:"user not found"});
             }
         }
