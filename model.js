@@ -18,7 +18,7 @@ const hospital_schema = new mongoose.Schema({
     b_negative:Number
 });
 hospital_schema.plugin(encrypt,{secret:stext,
-    encryptedFields:['hospital_password','hospital_id']
+    encryptedFields:['hospital_password']
 });
 const Hospital = mongoose.model('Hospital',hospital_schema);
 

@@ -125,8 +125,6 @@ app.post("/bloodtypes",(req,res)=>{
             }
             else
             {
-                console.log(hospital_id);
-                console.log(hospitalId)
                 console.log("user not found");
                 res.status(400).json({message:"user not found"});
             }
