@@ -15,28 +15,19 @@ var hospitalName="";
 var hospitalId="";
 /*app config */
 const app = express();
-app.use(bodyParser.json({extended: true}));
-app.use(cors({
-    origin:process.env.FRONTEND_CONNECTION_URL
-}));
+app.use(express.json());
+app.use(bodyParser.json());
+app.use(cors());
 
 /*mongoose setup */
-const mogodburl = process.env.MONGOOSE_CONNECTION_URL
-mongoose.connect(mogodburl,{ 
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false
-},function(err){
-    if(err){
-        console.log(err);
-    }
-    else
-    {
-        console.log("sucess fully connected");
-    }
-});
-mongoose.set('useFindAndModify', false);
+const mongodburl = process.env.MONGOOSE_CONNECTION_URL
+mongoose.connect(mongodburl).then((data)=>{
+    console.log("successfully connected");
+})
+.catch((err)=>{
+    console.log("error connecting the database")
+    console.log(err)
+})
 app.post("/hospitalregister",(req,res)=>{
     const hospitalname=req.body.hname;
     const hospitalid=req.body.hid;
@@ -260,6 +251,7 @@ app.post("/gethospitals",function(req,res){
 });
 app.post("/location",function(req,res)
 {
+    console.log("i recived the request");
     const location = req.body.location;
     const bloodtype = req.body.blood_type;
     if(location==="India")
@@ -527,7 +519,7 @@ app.post("/location",function(req,res)
     }
 })
 app.get("/",function(req,res){
-    res.send("<h1>i am up and running</h1>")
+    res.status(200).json({message:"this is working"})
 });
 app.listen(port,function(){
     console.log("server is up and running");
